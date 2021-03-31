@@ -1,0 +1,21 @@
+<div class="form-check">
+    <ng-container *ngIf="!editando; then noEdit; else editing">
+    </ng-container>
+    <ng-template #noEdit>
+        <input class="form-check-input mt-1" type="checkbox" id="inlineCheckbox1" value="opt" [formControl]="chkCompletado">
+        <label class="form-check-label" for="inlineCheckbox1" [class.text-success]="todo.completado" (dblclick)="editar()">
+            {{todo.texto}}
+        </label>
+        <button type="button" class="close" aria-label="Close" (click)="borrar()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </ng-template>
+    <ng-template #editing>
+        <input class="form-check-input mt-3" type="checkbox" id="inlineCheckbox1" value="opt">
+        <div class="form-group row">
+            <div class="col-10">
+                <input class="form-control" id="inputPassword" placeholder={{todo.texto}} [formControl]="txtInput" (blur)="terminarEdicion()" #inputFisico>
+            </div>
+        </div>
+    </ng-template>
+</div>
