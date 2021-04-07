@@ -1,2 +1,3 @@
-<app-todo-item *ngFor="let todo of todos" [todo]="todo">
+<app-todo-item *ngFor="let todo of todos | filtroTodo:filtroActual" [todo]="todo">
+    <!-- filtroActual se esta mandando como argumento al pipe -->
 </app-todo-item>

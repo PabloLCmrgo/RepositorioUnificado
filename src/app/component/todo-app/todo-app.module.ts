@@ -19,6 +19,7 @@ import { TodoPageComponent } from './todo-page/todo-page.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { FiltroPipe } from './filtro.pipe';
 
 
 
@@ -31,7 +32,8 @@ import { MatInputModule } from '@angular/material/input';
     TodoFooterComponent,
     TodoItemComponent,
     TodoListComponent,
-    TodoPageComponent],
+    TodoPageComponent,
+    FiltroPipe],
   imports: [
     CommonModule,
     FormsModule,

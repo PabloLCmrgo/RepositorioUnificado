@@ -1,13 +1,9 @@
-<span><strong>0</strong> tareas pendientes</span>
+<span><strong>{{pendientes}}</strong> tareas pendientes</span>
 <div class="btn-group btn-group-toggle ml-3" data-toggle="buttons">
-    <label class="btn btn-outline-secondary btn-sm active">
-        <input type="radio" name="options" id="option1" autocomplete="off" checked> Todas
-    </label>
-    <label class="btn btn-outline-secondary btn-sm">
-        <input type="radio" name="options" id="option2" autocomplete="off"> Activos
-    </label>
-    <label class="btn btn-outline-secondary btn-sm">
-        <input type="radio" name="options" id="option3" autocomplete="off"> Completado
-    </label>
+    <ng-container *ngFor="let filtro of filtros">
+        <label class="btn btn-outline-secondary btn-sm" [class.active]="filtro === filtroActual">
+            <input type="radio" autocomplete="off" [checked]="filtro === filtroActual" (click)="cambiarFiltro(filtro)"> {{filtro | titlecase}}
+        </label>
+    </ng-container>
 </div>
-<button type="button" class="btn btn-light">Limpiar completados</button>
+<button type="button" class="btn btn-light" (click)="limpiarCompletados()">Limpiar completados</button>
